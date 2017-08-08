@@ -1,0 +1,19 @@
+{
+    "editor.formatOnSave": true,
+    "clang-format.executable": "/Users/gancev/projects/slopeup/node_modules/clang-format",
+    "files.associations": {
+        "memory": "cpp",
+        "cstdint": "cpp",
+        "functional": "cpp",
+        "thread": "cpp",
+        "__config": "cpp",
+        "cstddef": "cpp",
+        "exception": "cpp",
+        "initializer_list": "cpp",
+        "new": "cpp",
+        "stdexcept": "cpp",
+        "typeinfo": "cpp",
+        "ios": "cpp",
+        "__locale": "cpp"
+    }
+}

@@ -4,48 +4,38 @@
     },
   "targets": [
     {
-      "target_name": "callexec",
+      "target_name": "msgprocessor",
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
-      "sources": [  "callexec.cpp" ],
-      'include_dirs': [ '<!@(node -p "require(\'node-addon-api\').include")',
-                "<!@(node -p \"require('napi-thread-safe-callback').include\")"],
-        'dependencies': [
-                '<!(node -p "require(\'node-addon-api\').gyp")'
-            ],
-        'cflags!': [ '-fno-exceptions' ],
-        'cflags_cc!': [ '-fno-exceptions' ],
-       
+      "sources": [  "./bind/msgprocessor.cpp" ],
+      'include_dirs': [ 
+          '<!@(node -p "require(\'node-addon-api\').include")',
+          '<!@(node -p "require(\'napi-thread-safe-callback\').include")',
+          './utils',
+          './bind'],
+      'dependencies': [
+          '<!(node -p "require(\'node-addon-api\').gyp")'],      
+      'cflags!': [ '-fno-exceptions' ],
+      'cflags_cc!': [ '-fno-exceptions' ],  
+      'ldflags': [ '-Wl,-s'],     
       'conditions': [
         [ 'OS=="mac"', {
-
-          'xcode_settings': 
-          {
-            'MACOSX_DEPLOYMENT_TARGET': '10.9',
-            "CLANG_CXX_LIBRARY": "libc++",
-            "GCC_ENABLE_CPP_RTTI": "YES",
-            "GCC_ENABLE_CPP_EXCEPTIONS": "YES",
-            'OTHER_CPLUSPLUSFLAGS' : ['-std=c++14','-stdlib=libc++'],
-            'OTHER_LDFLAGS': ['-stdlib=libc++'],
-            'MACOSX_DEPLOYMENT_TARGET':'10.9',
-          },
-
+            'xcode_settings': 
+            {
+              'MACOSX_DEPLOYMENT_TARGET': '10.9',
+              "CLANG_CXX_LIBRARY": "libc++",
+              "GCC_ENABLE_CPP_RTTI": "YES",
+              "GCC_ENABLE_CPP_EXCEPTIONS": "YES",
+              'OTHER_CPLUSPLUSFLAGS' : ['-std=c++14','-stdlib=libc++'],
+              'OTHER_LDFLAGS': ['-stdlib=libc++'],
+              'MACOSX_DEPLOYMENT_TARGET':'10.9',
+              'OTHER_CPLUSPLUSFLAGS!': [ '-Os', '-O2', '-stdlib=libc++' ],
+              "OTHER_CFLAGS": ["-stdlib=libc++"]
+            },
         }],
-      ],
-        'xcode_settings': {
-                    'OTHER_CPLUSPLUSFLAGS!': [
-                        '-Os',
-                        '-O2',
-                        '-stdlib=libc++'
-                    ],
-                     "OTHER_CFLAGS": ["-stdlib=libc++"]
-     
-                },
-                'ldflags': [
-                    '-Wl,-s'
-                ]
+      ],               
     }
   ]
 }

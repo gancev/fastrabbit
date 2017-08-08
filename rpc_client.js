@@ -18,8 +18,10 @@ amqp.connect('amqp://localhost', function(err, conn) {
             ch.consume(q.queue, function(msg) {
                 if (msg.properties.correlationId === corr) {
                     console.log(' [.] Got %s', msg.content.toString());
-                    setTimeout(function() { conn.close();
-                        process.exit(0) }, 500);
+                    setTimeout(function() {
+                        conn.close();
+                        process.exit(0)
+                    }, 500);
                 }
             }, { noAck: true });
 

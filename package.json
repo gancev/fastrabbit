@@ -1,7 +1,7 @@
 {
-    "name": "leanandmeanq",
+    "name": "MSGProcess",
     "version": "0.9.0",
-    "description": "lean and mean",
+    "description": "Processing messages from Rabbit MG with c++ worker thread pool ",
     "author": "itquarks",
     "main": "index.js",
     "private": false,
@@ -19,6 +19,6 @@
         "napi-thread-safe-callback": "0.0.1",
         "node-addon-api": "^0.4.0"
     },
-    "devDependencies": {},
+    "devDependencies": { "clang-format": "^1.0.53", },
     "license": "MIT"
 }
