@@ -1,5 +1,8 @@
 ## Fast Rabbit
-High Throughput processing Rabbit MQ messages in c++ native add on using N-API prototype
+
+Sample for High Throughput processing Rabbit MQ messages in c++ native addon using N-API.
+
+
 
 ##configuration
 Make sure you have node 8+ installed with node-gyp

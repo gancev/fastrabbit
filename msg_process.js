@@ -14,7 +14,7 @@ amqp.connect('amqp://localhost', function(err, conn) {
         ch.consume(q, function(msg) {
 
             callexec.async_bls(JSON.stringify(msg), function(err, arg) {
-                console.log('processed  ' + arg);
+                console.log('processed ' + arg);
                 ch.ack(msg);
             });
 
