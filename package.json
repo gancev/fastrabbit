@@ -1,8 +1,8 @@
 {
-    "name": "MSGProcess",
+    "name": "FastRabbit",
     "version": "0.9.0",
-    "description": "Processing messages from Rabbit MG with c++ worker thread pool ",
-    "author": "itquarks",
+    "description": "Demo sample of processing RabbitMQ messages in c++ with high Throughput",
+    "author": "Stojan Gancev",
     "main": "index.js",
     "private": false,
     "engines": {
